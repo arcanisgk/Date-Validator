@@ -1,0 +1,25 @@
+{
+  "name": "arcanisgk/date-validator",
+  "description": "Date Validator: is a library that allows any development to validate if a string is a datetime, date or time format or validate custom format",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "IcarosNet\\DateValidator\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Walter Nuñez",
+      "email": "icarosnet@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=7.4"
+  },
+  "config": {
+    "optimize-autoloader": true
+  }
+}
