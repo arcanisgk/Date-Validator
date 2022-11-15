@@ -61,6 +61,15 @@ if($date_validator->addFormat('d--m--Y H%i')->ValidateDate('09--09--2010 20%40')
 
 ```
 
+### avoid standard and use only custom:
+
+```php
+if ($date_validator->ValidateCustomFormatAndDate('09--09--2010','d--m--Y')) {
+    echo 'Correct date string';
+}
+```
+
+
 ### Contributors
 
 - (c) 2020 - 2022 Walter Francisco Núñez Cruz

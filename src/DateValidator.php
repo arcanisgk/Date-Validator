@@ -64,7 +64,10 @@ class DateValidator
     }
 
 
-
+    /**
+     * @param string $pattern
+     * @return $this|false
+     */
     public function addFormat(string $pattern){
         try{
             if(date($pattern, strtotime('2011-01-07'))!==false && !in_array($pattern,$this->getFormats(),true)){
@@ -77,6 +80,10 @@ class DateValidator
         return $this;
     }
 
+    /**
+     * @param string $date
+     * @return bool
+     */
     public function ValidateDate(string $date) : bool
     {
         foreach(array_merge($this->getFormats(),$this->getNewFormat()) as $key => $pattern){
@@ -89,7 +96,27 @@ class DateValidator
         return false;
     }
 
+    /**
+     * @param string $date
+     * @param string $format
+     * @return bool
+     */
+    public function ValidateCustomFormatAndDate(string $date,string $format):bool
+    {
+        $d = DateTime::createFromFormat($format, $date);
+        if($d && $d->format($format) === $date){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param $date
+     * @return false|string
+     */
     function FormatDate($date){
         return date('Y-m-d H:i:s', strtotime($date));
     }
+
+
 }

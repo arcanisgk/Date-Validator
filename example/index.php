@@ -8,6 +8,7 @@ require_once __DIR__."/../vendor/autoload.php";
 
 $date_validator = new DateValidator();
 
+
 //String parsing and main date formats:
 
 var_dump($date_validator->ValidateDate('10/10/1999 20:40'));
@@ -47,3 +48,7 @@ if($date_validator->ValidateDate('09--09--2010 20%40')){
 echo '<br>';
 echo 'Date new format d--m--Y H%i -> : ';
 var_dump($date_validator->addFormat('d--m--Y H%i')->ValidateDate('09--09--2010 20%40'));
+
+echo '<br>';
+echo 'Date new format d--m--Y, avoid standard : ';
+var_dump($date_validator->ValidateCustomFormatAndDate('09--09--2010','d--m--Y'));
